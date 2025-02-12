@@ -1,0 +1,52 @@
+server:
+ port: 8083
+
+spring:
+ application:
+  name: catalog
+  
+ datasource:
+  url: jdbc:mysql://localhost:3306/eatprotein?reconnect=true&zeroDateTimeBehavior=convertToNull&createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8
+  username: root
+  password: Bobby@2002
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+  database-platform: org.hibernate.dialect.MySQLDialect
+  
+eureka:
+ instance:
+  preferIpAddress: true
+ client:
+  fetch-registry: true
+  register-with-eureka: true
+  serviceUrl:
+   defaultZone: http://localhost:3786/eureka/
+   
+management:
+ endpoints:
+  web:
+   exposure:
+    include: "*"
+ endpoint:
+  shutdown:
+   enabled: true
+    
+ info:
+  env:
+   enabled: true
+
+endpoints:
+ shutdown:
+  enabled: true
+    
+info:
+ app:
+  name: "eatprotein"
+  description: "eatprotein application"
+  version: "1.0.0"
+  
+ 
